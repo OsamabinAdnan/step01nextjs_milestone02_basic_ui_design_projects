@@ -1,0 +1,1286 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Container @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+.container {
+  width: 100%;
+}
+
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Navbar Section @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+
+.navbar {
+/* p-3 sm:p-6 flex md:justify-between md:items-center shadow-lg max-w-[100%] */
+padding: 0.75rem;
+display: flex;
+max-width: 100%;
+box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+z-index: 999;
+}
+.linkDiv {
+  /* mx-auto container flex justify-between items-center gap-10 lg:flex-row flex-col */
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  flex-direction: column;
+}
+
+.logoLink{
+  /* sm:text-2xl text-xl font-bold */
+  font-weight: bold;
+  font-size: 1.15rem /* 20px */;
+  line-height: 1.75rem /* 28px */;
+  transition: transform 0.5s ease-in-out;
+}
+.logoLink:hover {
+  transform: scale(1.15)
+}
+.logoBlink {
+  /* relative inline-flex rounded-full h-3 w-3 bg-red top-[-20]  left-[-12] animate-pulse ease-in-out duration-1000 */
+  position: relative;
+  display: inline-flex;
+  border-radius: 100%;
+  height: 0.5rem;
+  width: 0.5rem;
+  background-color: red;
+  top: -20;
+  left: -12;
+}
+.menuLinkDiv {
+  /* flex-col md:flex md:flex-row gap-4 */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.menuLinks {
+  /* hover:text-black lg:text-xl md:text-lg sm:text-lg  font-bold */
+  font-weight: bold;
+  color: black;
+}
+
+.btnDiv {
+  /*  md:hidden flex items-center */
+  display: flex;
+  align-items: center;
+}
+.btnMenu {
+  /* bg-[#4ee247] */
+  background-color: #4ee247;
+}
+
+.bgBlurEffect {
+  /* absolute lg:w-[600px] lg:h-[600px] md:w-[380px] md:h-[380px] w-[220px] h-[350px] bg-[#4ee247] top-[-20%] left-[-10%] rounded-full blur-[50px] opacity-100 -z-10 */
+  position: absolute;
+  width: 220px;
+  height: 350px;
+  background-color: #4ee247;
+  top: -20%;
+  left: -10%;
+  border-radius: 100%;
+  filter: blur(50px);
+  opacity: 1;
+  z-index: -10;
+}
+
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Animation For Navbar @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+@keyframes pulse {
+  50% {
+      opacity: 0.5;
+  }
+}
+/* Create a class that uses the pulse animation */
+  .animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  .ease-in-out {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .duration-1000 {
+    transition-duration: 1000ms;
+}
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Animation For Menu Button @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+.hoverMenu {
+  position: relative;
+}
+.hoverMenu::before{
+  content: '';
+  display: block;
+  position:absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background: #4ee247;
+  transform: scaleX(0);
+  transition: transform 0.5s ease-in-out;
+  z-index: -1;
+  transform-origin: left;
+  border-radius: 10px;
+}
+.hoverMenu:hover::before{
+  transform: scaleX(1);
+  transform-origin: right;
+  color: black;
+}
+
+
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Footer Section @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+
+.bgImage{
+  background-image: url(../public/wave2.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  position: absolute;
+  height: 70vh;
+  width: 100%;
+}
+.footerMainDiv {
+  /* 'max-w-[100%] sm:w-screen max-h-[100%] h-[100vh] bg-white w-screen flex flex-col justify-center items-center mt-[100px] gap-12 p-[0px] bgImage' */
+  max-width: 100%;
+  width: 100vw;
+  max-height: 100%;
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  gap: 3rem;
+}
+.dividerLineDiv {
+  /* lg:w-[950px] md:w-[650px] sm:w-[550px] w-[300px] h-[3px] bg-gradient-to-r from-[#4ee247] to-[#000000]  */
+  width: 300px;
+  height: 5px;
+  background: linear-gradient(135deg, #4ee247, black);
+}
+.socialMediaOuterDiv {
+  /* flex justify-center items-center flex-col lg:gap-10 md:gap-8 sm:gap-[25px] gap-[25px] */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 25px;
+}
+.socialMediaDiv {
+  /* flex justify-end items-end gap-4 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.socialMediaLinks {
+  /* text-black w-[30px] h-[30px] hover:text-[#4ee247] hover:scale-150 transition-all duration-300 */
+  color: black;
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s ease-in-out;
+}
+.socialMediaLinks:hover {
+  transform: scale(1.5);
+  color: #4ee247;
+}
+.copyRightDiv {
+  /* text-black justify-center items-center */
+  color: black;
+  justify-content: center;
+  align-items: center;
+}
+.copyRightPara {
+  /* text-[25px] font-semibold justify-center text-center */
+  font-size: 25px;
+  font-weight: bold;
+  justify-content: center;
+  text-align: center;
+}
+
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Hero Section @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+.mainHeroDiv {
+  /* 'flex sm:p-[50px] p-[30px] max-w-full h-auto  justify-center items-center lg:flex-row flex-col lg:text-ellipsis' */
+  display: flex;
+  padding: 30px;
+  max-width: 100%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.innerHeroDiv {
+  /* flex lg:flex-row flex-col lg:px-[50px] justify-center items-center mt-[80px] mb-[80px]*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 80px 0px;
+
+}
+.leftSectionDiv {
+/* container flex flex-col basis-[60%] w-full */
+  display: flex;
+  flex-direction: column;
+  flex-basis: 60%;
+  width: 100%;
+}
+.leftSectioninnerDiv {
+  /* py-[10px] */
+  padding: 10px 0px;
+}
+.h1leftSectioninnerDiv {
+  /* text-black lg:text-[60px] md:text-[40px] text-[35px] font-bold */
+  color: black;
+  font-size: 35px;
+  font-weight: 700;
+}
+.h1firstspanLeftSection {
+  /* text-black lg:text-[60px] md:text-[40px] text-[35px] */
+  color: black;
+  font-size: 35px;
+}
+.h1seondspanLeftSection {
+  /* text-black lg:text-[60px] md:text-[40px] text-[35px] font-bold */
+  color: black;
+  font-size: 35px;
+  font-weight: 700;
+}
+.firstspanleftSection {
+  /* text-black lg:text-[60px] md:text-[40px] sm:text-[30px] text-[20px] */
+  color: black;
+  font-size: 20px;
+}
+.secondspanleftSection {
+  /* text-[#4ee247] lg:text-[60px] md:text-[40px] sm:text-[30px] text-[20px] font-bold */
+  color: #4ee247;
+  font-size: 20px;
+  font-weight: 700;
+}
+.paragraphLeftSection {
+  /* text-black text-left font-medium lg:text-[28px] md:text-[22px] text-[18px] */
+  color: black;
+  text-align: left;
+  font-weight: 500;
+  font-size: 18px;
+}
+.socialLinkDivLeftSection {
+  /* flex lg:gap-8 md:gap-6 sm:gap-4 gap-3 py-8 justify-center lg:justify-start */
+  display: flex;
+  gap: 12px;
+  padding: 24px 0px;
+  justify-content: center;
+}
+.socialLinksLeftSection {
+  /* text-black hover:text-[#4ee247] */
+  color: black;
+}
+.socialLinksLeftSection:hover {
+  color: #4ee247;
+}
+.btnDivHeroLeftSection {
+  /* flex justify-center lg:justify-start my-5*/
+  display: flex;
+  justify-content: center;
+  margin: 20px 0px;
+  
+}
+.btnHeroSection {
+  /* bg-black text-white hover:text-[#151925] hoverMenu font-bold rounded-[10px] */
+  background-color: black;
+  color: white;
+  font-weight: 700;
+  border-radius: 10px;
+}
+.btnHeroSection:hover {
+  color: #151925;
+}
+.rightSectionDiv {
+  /* relative */
+  position: relative;
+}
+.rightSectionInnerDiv {
+  /* flex mx-auto h-screen justify-center items-center  basis-[40%] */
+  display: flex;
+  margin: 0px auto 0px;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 40%;
+}
+.rightSectionInnerDivImage {
+  /* md:h-[600px] md:w-[620px] */
+  height: auto;
+  width: auto;
+}
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ About Section @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+.mainAboutDiv {
+  /* flex sm:p-[50px] p-[30px] max-w-full h-auto justify-center items-center lg:flex-row flex-col-reverse lg:gap-[20px] gap-[40px] lg:text-ellipsis z-50 */
+  display: flex;
+  padding: 30px;
+  max-width: 100%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column-reverse;
+  gap: 40px;
+  z-index: 99;
+  position: relative;
+}
+.leftSectionDivAbout {
+  /* flex basis-[40%] w-full justify-center items-center mx-auto  */
+  display: flex;
+  flex-basis: 40%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin: 0px auto 0px;
+}
+.rightSectionDivAbout {
+  /* basis-[60%] justify-center items-center */
+  flex-basis: 60%;
+  justify-content: center;
+  align-items: center;
+}
+.h1rightSectionDivAbout {
+  /* text-black text-[35px] lg:text-[60px] md:text-[40px] font-extrabold font-[montserrat] */
+  color: black;
+  font-size: 35px;
+  font-weight: 800;
+  font-family: 'montserrat';
+}
+.h1SpanrightSectionDivAbout {
+  /* text-[35px] lg:text-[60px] md:text-[40px] text-[#4ee247]*/
+  color: #4ee247;
+  font-size: 35px;
+}
+.h4RightSectionDivAbout{
+  /* text-black lg:text-[30px] md:text-[26px] text-[22px] font-semibold font-[montserrat] mb-10 */
+  color: black;
+  font-size: 22px;
+  font-weight: 600;
+  font-family: 'montserrat';
+  margin-bottom: 40px;
+}
+.paraRightSectionDivAbout {
+  /* text-black text-left font-medium font-[montserrat] lg:text-[28px] md:text[22px] text[18px] mb-10 */
+  color: black;
+  text-align: left;
+  font-weight: 500;
+  font-family: 'montserrat';
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+.btnDivAbout {
+  /* flex justify-center lg:justify-start */
+  display: flex;
+  justify-content: center;
+}
+.btnTagAbout {
+  /* bg-black text-white hover:text-black hoverMenu font-bold rounded-[10px] */
+  background-color: black;
+  color: white;
+  font-weight: 700;
+  border-radius: 10px;
+}
+.btnTagAbout:hover {
+  color: black;
+}
+.bgBlurEffect2 {
+  /* absolute lg:w-[600px] lg:h-[600px] md:w-[380px] md:h-[380px] w-[220px] h-[350px] bg-[#4ee247] bottom-[10%] right-[0%] rounded-full blur-[50px] opacity-100 -z-10 */
+  position: absolute;
+  width: 220px;
+  height: 350px;
+  background-color: #4ee247;
+  bottom: 10%;
+  right: 0%;
+  border-radius: 100%;
+  filter: blur(50px);
+  opacity: 1;
+  z-index: -100;
+}
+
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Skill Section Progress bar @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+/* Progress bar */
+.wrapper {
+  border: 3px solid #4ee247;
+  border-radius: 15px;
+}
+
+.progressContainer {
+  background-color: #4ee247;
+  border-radius: 10px;
+}
+
+.barCompleted1 {
+  background-color: black;
+  width: 90%;
+  border-radius: 10px;
+}
+.barCompleted2 {
+  background-color: black;
+  width: 85%;
+  border-radius: 10px;
+}
+.barCompleted3 {
+  background-color: black;
+  width: 82%;
+  border-radius: 10px;
+}
+.barCompleted4 {
+  background-color: black;
+  width: 88%;
+  border-radius: 10px;
+}
+.barCompleted5 {
+  background-color: black;
+  width: 93%;
+  border-radius: 10px;
+}
+.barCompleted5 {
+  background-color: black;
+  width: 80%;
+  border-radius: 10px;
+}
+.barCompleted6 {
+  background-color: black;
+  width: 75%;
+  border-radius: 10px;
+}
+.label {
+  font-size: 25px;
+  color: white;
+  font-weight: bold;
+}
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Skills Section @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+.skillsMainDiv {
+  /* sm:p-[50px] p-[30px] max-w-full h-auto justify-center items-center lg:flex-row flex-col-reverse lg:gap-[20px] gap-[40px] lg:text-ellipsis */
+
+  padding: 30px;
+  max-width: 100%;
+  height: auto;
+
+}
+.skillsInnerDivofMainDiv {
+  /* flex justify-center items-center my-[75px] */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 75px 0px;
+}
+.skillsInnerDivh1 {
+  /* text-black text-[65px] font-extrabold font-[montserrat] */
+  display: flex;
+  color: black;
+  font-size: 65px;
+  font-weight: 800;
+  font-family: 'montserrat';
+  justify-content: center;
+  align-items: center;
+}
+.h2Skills {
+  /* flex lg:text-[40px] md:text-[32px] text-[24px] font-bold my-[30px] bg-gradient-to-r from-[black] via-[#4ee247] to-[black] text-transparent bg-clip-text justify-center */
+  display: flex;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 30px 0px;
+  background: linear-gradient(120deg, black, #4ee247, black);
+  color: transparent;
+  background-clip: text;
+  justify-content: center;
+  text-align: center;
+}
+.progressBarDiv {
+  /* grid grid-flow-row lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 */
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 20px;
+}
+.h3progressBarHeading {
+/* lg:text-[30px] md:text-[20px] text-[15px] font-bold */
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Services Section @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+.mainServicesDiv {
+  /*  sm:p-[50px] p-[30px] bg-white max-w-full h-auto mx-auto lg:text-ellipsis relative z-50 */
+  padding: 30px;
+  background-color: white;
+  max-width: 100%;
+  height: auto;
+  margin: 0px auto 0px;
+  position: relative;
+  z-index: 999;
+}
+.h1MainServicesDiv {
+  /* text-black lg:text-[65px] text-[55px] font-extrabold font-[montserrat] text-center mb-20 mt-20 */
+  color: black;
+  font-size: 55px;
+  font-weight: 800;
+  font-family: 'montserrat';
+  text-align: center;
+  margin: 80px auto 80px;
+}
+.h1SpanMainServicesDiv {
+  /* text-[#4ee247] */
+  color: #4ee247;
+}
+.innerServicesDiv {
+  /* flex lg:flex-row justify-center gap-4 flex-col flex-wrap items-center relative */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 999;
+  gap: 16px;
+  flex-direction: column;
+}
+.boxDiv {
+  /* flex flex-col border-black bg-white justify-center items-center px-8 py-10  border-solid max-w-[500px] w-auto max-h-auto h-[500px] rounded-xl border-4 hover:border-4 hover:border-solid hover:border-[#4ee247] hover:transition hover:ease-out duration-500 hover:scale-105 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 32px;
+  border: 4px solid black;
+  max-width: 500px;
+  width: auto;
+  max-height: auto;
+  height: 500px;
+  border-radius: 12px;
+  z-index: 999;
+
+}
+.boxDiv:hover{
+  border: 4px solid #4ee247;
+  transition: all;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  transition-duration: 500ms;
+  scale: 1.05;
+}
+.h1boxDiv {
+  /* text-black font-bold lg:text-[35px] md:text-[30px] sm:text-[25px] text-[22px] mt-1 mb-4 text-center */
+  color: black;
+  font-size: 22px;
+  margin: 4px auto 16px;
+  align-items: center;
+  font-weight: 800;
+  text-align: center;
+}
+.paraboxDiv {
+  /* text-black text-center mb-5 lg:text-[25px] md:text-[20px] sm:text-[15px] font-medium */
+  color: black;
+  text-align: center;
+  margin: 0px auto 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+.btnboxDivServices {
+  /* bg-black text-white hover:text-black lg:text-[20px] md:text-[16px] text-[12px] hover:bg-[#4ee247] lg:w-[150px] lg:h-[40px] md:w-[120px] md:h-[30px] w-[100px] h-[20px]  font-bold rounded-[10px] */
+  background-color: black;
+  color: white;
+  font-weight: 700;
+  border-radius: 10px;
+  font-size: 12px;
+  width: 100px;
+  height: 20px;
+}
+.btnboxDivServices:hover {
+  color: black;
+  background-color: #4ee247;
+}
+
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Portfolio Section @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+.mainPortfolioDiv {
+  /*  sm:p-[80px] p-[30px] bg-white max-w-full h-auto mx-auto lg:gap-[40px] gap-[20px] lg:text-ellipsis relative z-50  */
+  padding: 30px;
+  background-color: white;
+  max-width: 100%;
+  height: auto;
+  margin: 0px auto 0px;
+  gap: 20px;
+  position: relative;
+  z-index: 50;
+}
+.h1Portfolio {
+  /* text-black lg:text-[65px] text-[55px] font-extrabold font-[montserrat] text-center mb-20 mt-20 */
+  color: black;
+  font-size: 55px;
+  font-weight: 800;
+  font-family: 'montserrat';
+  text-align: center;
+  margin: 80px auto 80px;
+}
+.portfolioMainInnerDiv {
+  /* grid xl:grid-cols-3 gap-5 */
+  display: grid;
+  gap: 20px;
+}
+.picturePortfolioOuterDiv {
+  /*  w-full h-full group */
+  width: 100%;
+  height: 100%;
+}
+.picturePortfolioMiddleDiv {
+  /* relative overflow-hidden */
+  position: relative;
+  overflow: hidden;
+}
+.portfolioMiddleDivImage {
+  /* border-[#4ee247] border-solid border-[4px] rounded-[10px] w-full h-full */
+  border: 4px solid #4ee247;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+}
+.portfolioInnerDivBlackShade {
+  /* absolute h-full w-full bg-black/80 flex flex-col items-center justify-center -bottom-10 group-hover:bottom-0 opacity-0 group-hover:opacity-100 transition-all duration-700  rounded-[10px] */
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  bottom: -2.5rem;
+  opacity: 0;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 700ms;
+  animation-duration: 700ms;
+  border-radius: 10px;
+}
+.portfolioInnerDivBlackShadeh3tag{
+  /* text-white font-bold sm:mb-4 mb-[4px] mt-[8px] text-center text-[24px] sm:text-[35px]*/
+  color: white;
+  font-weight: 700;
+  text-align: center;
+  margin: 8px auto 4px;
+  font-size: 24px;
+}
+.portfolioInnerDivBlackShadeParatag {
+  /* text-white text-center sm:text-[18px] text-[12px] sm:mb-4 mb-[8px] sm:mx-5 mx-[12px] font-[500] */
+  color: white;
+  text-align: center;
+  font-size: 12px;
+  margin: 0px 12px 8px;
+  font-weight: 500;
+}
+.portfolioInnerDivBlackShadeBtn{
+  /* bg-[#4ee247] rounded-[10px] text-white sm:py-2 py-0px px-1 sm:px-5 text-[8px] sm:text-[22px] */
+  background-color: #4ee247;
+  border-radius: 10px;
+  color: white;
+  padding: 0px 4px;
+  font-size: 8px;
+
+}
+.bgBlurEffect3 {
+  /* 'absolute lg:w-[600px] lg:h-[600px] md:w-[380px] md:h-[380px] w-[220px] h-[220px] bg-[#4ee247] top-[40%] right-[0%] rounded-full blur-[50px] opacity-100 z-0 */
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  background-color: #4ee247;
+  border-radius: 100%;
+  filter: blur(50px);
+  opacity: 1;
+  z-index: 0;
+  top: 40%;
+  right: 0%;
+}
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Contact Section @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+.mainContactDiv {
+  /* sm:p-[80px] p-[30px] bg-white max-w-full h-auto lg:gap-[40px] gap-[20px] lg:text-ellipsis relative z-50 */
+  padding: 30px;
+  background-color: white;
+  max-width: 100%;
+  height: auto;
+  gap: 20px;
+  position: relative;
+  z-index: 50;
+}
+.h1ContactSection {
+  /* text-black lg:text-[65px] text-[55px] font-extrabold font-[montserrat] text-center mb-20 mt-20 */
+  color: black;
+  font-size: 55px;
+  font-weight: 800;
+  font-family: 'montserrat';
+  text-align: center;
+  margin: 80px auto 80px;
+}
+.innerDivContactSection {
+  /* flex items-center justify-center flex-col mx-auto */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0px auto 0px;
+}
+.innerDivContactSectionForm {
+  /* flex items-center justify-center flex-col mx-auto */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0px auto 0px;
+}
+.inputelements {
+  /* py-[17px] px-[30px] lg:w-[1000px] md:w-[650px] sm:w-[500px] w-[250px] relative rounded-xl active:bg-[#eeeeee] bg-white border-2 hover:border-2 border-black hover:border-[#4ee247]  text-black my-5 */
+  padding: 18px 30px;
+  width: 250px;
+  position: relative;
+  border-radius: 12px;
+  background-color: white;
+  border: 2px solid black;
+  color: black;
+  margin: 20px 0px;
+}
+.inputelements:active {
+  background-color: #eeeeee;
+}
+.inputelements:hover {
+  border: 2px solid #4ee247;
+}
+.textareaElementContactSection {
+/* py-[17px] px-[30px] lg:w-[1000px] md:w-[650px] sm:w-[500px] w-[250px] relative rounded-xl active:bg-[#eeeeee] bg-white border-2 hover:border-2 border-black hover:border-[#4ee247]  text-black mt-5 mb-10 */
+padding: 18px 30px;
+width: 250px;
+position: relative;
+border-radius: 12px;
+background-color: white;
+border: 2px solid black;
+color: black;
+margin: 20px auto 40px;
+}
+.textareaElementContactSection:active {
+  background-color: #eeeeee;
+}
+.textareaElementContactSection:hover {
+  border: 2px solid #4ee247;
+}
+.btnDivContactSection {
+  /* flex justify-center item-center*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btnContactSection {
+  /* bg-black text-white hover:text-black hoverMenu font-bold rounded-[10px] */
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  font-weight: 700;
+}
+.btnContactSection:hover {
+  color: black;
+}
+
+.bgBlurEffect4 {
+  /* absolute lg:w-[600px] lg:h-[600px] md:w-[380px] md:h-[380px] w-[220px] h-[220px] bg-[#4ee247] top-[50%] left-[0%] rounded-full blur-[50px] opacity-100 z-0 */
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  top:50%;
+  left: 0%;
+  border-radius: 100%;
+  background-color: #4ee247;
+  filter: blur(50px);
+  opacity: 1;
+  z-index: 0;
+}
+
+
+
+
+
+
+
+
+
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Media Queries @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+/* ################# sm ########################## */
+@media (min-width:640px){
+  /* navbar */
+  .navbar{
+    padding: 1.5rem;
+  }  
+  .container {
+    max-width: 640px;
+  }
+  .logoLink{
+    font-size: 1.5rem ;
+    line-height: 2rem ;
+  }
+  .menuLinks {
+    font-size: 1.125rem /* 18px */;
+    line-height: 1.75rem /* 28px */;
+  }
+/* footer */
+  .dividerLineDiv {
+    width: 550px;
+  }
+  /* Hero Section */
+  .mainHeroDiv {
+    /* 'flex sm:p-[50px] p-[30px] max-w-full h-auto  justify-center items-center lg:flex-row flex-col lg:text-ellipsis' */
+    padding: 50px;
+  }
+  .firstspanleftSection {
+    font-size: 30px;
+  }
+  .secondspanleftSection {
+    font-size: 30px;
+  }
+  .socialLinkDivLeftSection {
+    gap: 16px;
+  }
+  /* About Section */
+  .mainAboutDiv {
+    /* flex sm:p-[50px] p-[30px] max-w-full h-auto justify-center items-center lg:flex-row flex-col-reverse lg:gap-[20px] gap-[40px] lg:text-ellipsis z-50 */
+    padding: 50px;
+  }
+  /* Skills Section */
+  .skillsMainDiv {
+    /* sm:p-[50px] p-[30px] max-w-full h-auto justify-center items-center lg:flex-row flex-col-reverse lg:gap-[20px] gap-[40px] lg:text-ellipsis */
+    padding: 50px;
+  }
+  /* Services Section */
+  .mainServicesDiv {
+    /*  sm:p-[50px] p-[30px] bg-white max-w-full h-auto mx-auto lg:text-ellipsis relative z-50 */
+    padding: 50px;
+  }
+  .h1boxDiv {
+    font-size: 25px;
+  }
+  .paraboxDiv {
+    font-size: 15px;
+  }
+  /* Portolio Section */
+
+  .mainPortfolioDiv {
+    padding: 80px;
+  }
+  .portfolioInnerDivBlackShadeh3tag{
+    font-size: 35px;
+    margin: 0px auto 16px;
+  }
+  .portfolioInnerDivBlackShadeParatag {
+    font-size: 18px;
+    margin: 0px 20px 16px;
+  }
+  .portfolioInnerDivBlackShadeBtn{
+    /* bg-[#4ee247] rounded-[10px] text-white sm:py-2 sm:px-5 text-[22px] */
+    
+    padding: 8px 20px;
+    font-size: 22px;
+  }
+  /* Contact Section */
+  .mainContactDiv {
+    padding: 80px;
+  }
+  .inputelements {
+    width: 500px;
+  }
+  .textareaElementContactSection {
+    width: 500px;
+  }
+}
+
+
+
+
+/* ################# md ########################## */
+@media (min-width:768px){
+  /* navbar */
+  .navbar {
+    justify-content: space-between;
+    align-items: center;
+  }
+  .container {
+    max-width: 768px;
+  }
+  .menuLinkDiv {
+    display: flex;
+    flex-direction: row;
+  }
+  .menuLinks {
+    font-size: 1.125rem /* 18px */;
+    line-height: 1.75rem /* 28px */;
+  }
+  .btnDiv {
+    display: none;
+  }
+  .bgBlurEffect {
+    width: 380px;
+    height: 380px;
+  }
+  /* footer */
+  .dividerLineDiv {
+    width: 650px; 
+  }
+  .socialMediaOuterDiv {
+    gap: 2rem;
+  }
+  .h1leftSectioninnerDiv {
+    font-size: 40px;
+  }
+  .h1firstspanLeftSection {
+    font-size: 40px;
+  }
+  .h1seondspanLeftSection {
+    font-size: 40px;
+  }
+  .firstspanleftSection {
+    font-size: 40px;
+  }
+  .secondspanleftSection {
+    font-size: 40px;
+  }
+  .paragraphLeftSection {
+    font-size: 22px;
+  }
+  .socialLinkDivLeftSection {
+    gap: 24px;
+  }
+  .rightSectionInnerDivImage {
+    /* md:h-[600px] md:w-[620px] */
+    height: 600px;
+    width: 620px;
+  }
+  /* About Section */
+  .h1rightSectionDivAbout {
+    /* text-black text-[35px] lg:text-[60px] md:text-[40px] font-extrabold font-[montserrat] */
+    font-size: 40px;
+  }
+  .h1SpanrightSectionDivAbout {
+    /* text-[35px] lg:text-[60px] md:text-[40px] text-[#4ee247]*/
+    font-size: 40px;
+  }
+  .h4RightSectionDivAbout{
+    font-size: 26px;
+  }
+  .paraRightSectionDivAbout {
+    font-size: 22px;
+  }
+  .bgBlurEffect2 {
+    width: 380px;
+    height: 380px;
+  }
+  /* Skill Section */
+  .h2Skills {
+    font-size: 32px;
+  }
+  .progressBarDiv {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .h3progressBarHeading {
+      font-size: 20px;
+  }
+  .h1boxDiv {
+      font-size: 30px;
+      
+  }
+  .paraboxDiv {
+    font-size: 20px;
+  }
+  .btnboxDivServices {
+    font-size: 16px;
+    width: 120px;
+    height: 30px;
+  }
+  .bgBlurEffect3 {
+    width: 380px;
+    height: 380px;
+  }
+  .inputelements {
+    width: 650px;
+  }
+  .textareaElementContactSection {
+    width: 650px;
+  }
+  .bgBlurEffect4 {
+    width: 380px;
+    height: 380px;
+  }
+  
+}
+
+
+
+
+
+/* ################# lg ########################## */
+
+@media (min-width: 1024px) {
+  /* navbar */
+  .container {
+      max-width: 1024px;
+  }
+  .linkDiv {
+    flex-direction: row;
+  }
+  .menuLinks {
+    font-size: 1.25rem /* 20px */;
+    line-height: 1.75rem /* 28px */
+  }
+  .bgBlurEffect {
+    width: 600px;
+    height: 600px;
+  }
+  /* footer */
+  .dividerLineDiv {
+    width: 950px;
+  }
+  .socialMediaOuterDiv {
+    /* flex justify-center items-center flex-col lg:gap-10 md:gap-8 sm:gap-[25px] gap-[25px] */
+    gap: 2.5rem;
+  }
+   /* Hero Section */
+   .mainHeroDiv {
+    /* 'flex sm:p-[50px] p-[30px] max-w-full h-auto  justify-center items-center lg:flex-row flex-col lg:text-ellipsis' */
+    flex-direction: row;
+    text-overflow: ellipsis;
+  }
+  .innerHeroDiv {
+    /* flex lg:flex-row flex-col lg:px-[50px] justify-center items-center mt-[80px] mb-[80px]*/
+     flex-direction: row;
+     padding: 0px 50px;
+  }
+  .h1leftSectioninnerDiv {
+    /* text-black lg:text-[60px] md:text-[40px] text-[35px] font-bold */
+    font-size: 60px;
+   
+  }
+  .h1firstspanLeftSection {
+    font-size: 60px;
+  }
+  .h1seondspanLeftSection {
+    font-size: 60px;
+  }
+  .firstspanleftSection {
+    font-size: 60px;
+  }
+  .secondspanleftSection {
+    font-size: 60px;
+  }
+  .paragraphLeftSection {
+    font-size: 28px;
+  }
+  .socialLinkDivLeftSection {
+    /* flex lg:gap-8 md:gap-6 sm:gap-4 gap-3 py-8 justify-center lg:justify-start */
+    gap: 32px;
+    justify-content: start;
+  }
+  .btnDivHeroLeftSection {
+    justify-content: start;
+  }
+  /* About Section */
+  .mainAboutDiv {
+    /* flex sm:p-[50px] p-[30px] max-w-full h-auto justify-center items-center lg:flex-row flex-col-reverse lg:gap-[20px] gap-[40px] lg:text-ellipsis z-50 */
+    flex-direction: row;
+    gap: 20px;
+    text-overflow: ellipsis;
+  }
+  .h1rightSectionDivAbout {
+    /* text-black text-[35px] lg:text-[60px] md:text-[40px] font-extrabold font-[montserrat] */
+    font-size: 60px;
+  }
+  .h1SpanrightSectionDivAbout {
+    /* text-[35px] lg:text-[60px] md:text-[40px] text-[#4ee247]*/
+    font-size: 60px;
+  }
+  .h4RightSectionDivAbout{
+    font-size: 30px;
+  }
+  .paraRightSectionDivAbout {
+    font-size: 28px;
+  }
+  .btnDivAbout {
+    justify-content: flex-start;
+  }
+  .bgBlurEffect2 {
+    width: 600px;
+    height: 600px;
+  }
+  /* Skill Section */
+  .skillsMainDiv {
+    /* sm:p-[50px] p-[30px] max-w-full h-auto justify-center items-center lg:flex-row flex-col-reverse lg:gap-[20px] gap-[40px] lg:text-ellipsis */
+    flex-direction: row;
+    gap: 20px;
+    text-overflow: ellipsis;
+  }
+  .h2Skills {
+    font-size: 40px;
+  }
+  .progressBarDiv {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .h3progressBarHeading {
+      font-size: 30px;
+    }
+    /* Service Section */
+    .mainServicesDiv {
+      text-overflow: ellipsis;
+    }
+    .h1MainServicesDiv {
+      /* text-black lg:text-[65px] text-[55px] font-extrabold font-[montserrat] text-center mb-20 mt-20px */
+      font-size: 65px;
+    }
+    .innerServicesDiv {
+      /* flex lg:flex-row justify-center gap-4 flex-col flex-wrap items-center relative */
+      flex-direction: row;
+    }
+    .h1boxDiv {
+      font-size: 35px;
+    }
+    .paraboxDiv {
+      /* text-black text-center mb-5 lg:text-[25px] md:text-[20px] sm:text-[15px] font-medium */
+      font-size: 25px;
+    }
+    .btnboxDivServices {
+      font-size: 20px;
+      width: 150px;
+      height: 40px;
+    }
+    /* Portfolio Section */
+    .mainPortfolioDiv {
+      /*  sm:p-[80px] p-[30px] bg-white max-w-full h-auto mx-auto lg:gap-[40px] gap-[20px] lg:text-ellipsis relative z-50  */
+      gap: 40px;
+      text-overflow: ellipsis;
+    }
+    .h1Portfolio {
+      font-size: 65px;
+    }
+    .bgBlurEffect3 {
+      width: 600px;
+      height: 600px;
+    }
+    /* Contact Section */
+    .mainContactDiv {
+      gap: 40px;
+      text-overflow: ellipsis;
+    }
+    .h1ContactSection {
+      /* text-black lg:text-[65px] text-[55px] font-extrabold font-[montserrat] text-center mb-20 mt-20 */
+      font-size: 65px;
+    }
+    .inputelements {
+      width: 1000px;
+
+    }
+    .textareaElementContactSection {
+      width: 1000px;
+    }
+    .bgBlurEffect4 {
+      /* absolute lg:w-[600px] lg:h-[600px] md:w-[380px] md:h-[380px] w-[220px] h-[220px] bg-[#4ee247] top-[50%] left-[0%] rounded-full blur-[50px] opacity-100 z-0 */
+      width: 600px;
+      height: 600px;
+    }
+    
+    
+    
+  
+}
+
+
+
+
+
+
+
+/* ################# xl ########################## */
+@media (min-width: 1280px) {
+  .container {
+      max-width: 1280px;
+  }
+  /* Portfolio */
+  .portfolioMainInnerDiv {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  
+  }
+}
+
+
+
+
+
+/* ################# 2xl ########################## */
+@media (min-width: 1536px) {
+  .container {
+      max-width: 1536px;
+  } 
+}
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
